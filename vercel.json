@@ -1,0 +1,16 @@
+{
+  "builds": [
+    { "src": "api/*.py", "use": "@vercel/python" },
+    {
+      "src": "web/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "web/dist" }
+    }
+  ],
+  "routes": [
+    { "src": "^/api/(.*)$", "dest": "api/index.py" },
+
+    { "src": "^/assets/(.*)$", "dest": "web/dist/assets/$1" },
+    { "src": "^(?!/api/).*", "dest": "web/dist/index.html" }
+  ]
+}
