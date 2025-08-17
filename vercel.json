@@ -1,11 +1,7 @@
 {
-  "functions": {
-    "api/*.py": {
-      "runtime": "python"
-    }
-  },
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
