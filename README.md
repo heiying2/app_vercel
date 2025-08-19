@@ -1,7 +1,7 @@
 
 # app_vercel 專案說明
 
-`app_vercel` 是一個結合 React + Vite 前端與 FastAPI 後端的全端範例專案，適合用於學習、展示或快速啟動全端架構。
+`app_vercel` 是一個結合 React + Vite 前端與 FastAPI 後端的全端範例專案，希望將全端應用部署於 [Vercel](https://vercel.com/)，適合用於學習、展示或快速啟動全端架構。
 
 ## 專案架構
 
@@ -22,19 +22,17 @@
 - **開發工具**：
 	- ESLint 設定檔（`eslint.config.js`）用於前端程式碼檢查。
 
-## 如何啟動
+## 如何部署
 
-### 前端
-```bash
-npm install
-npm run dev
-```
+用 Git 連動到 [Vercel](https://vercel.com/)
 
-### 後端
-```bash
-pip install -r requirements.txt
-uvicorn api.index:app --reload
-```
+登入 Vercel
+
+到 Vercel Dashboard → New Project → 匯入你的 repo。
+
+點 Deploy，等完成後就有預覽域名即可上線。
+
+之後每次 push github，Vercel 都會自動建置 & 發佈（PR 也會有 Preview 部署）。
 
 ## 主要功能
 
