@@ -1,24 +1,13 @@
-import { useState } from "react";
-import { getFinanceAdvice } from "../api";
+import ChatBox from "../components/ChatBox";
 
 export default function Finance() {
-  const [cost, setCost] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [result, setResult] = useState(null);
-
-  const handleClick = async () => {
-    const data = await getFinanceAdvice(cost, price);
-    setResult(data);
-  };
-
   return (
-    <div>
-      <h2>財務顧問</h2>
-      <input type="number" value={cost} onChange={e => setCost(Number(e.target.value))} placeholder="成本"/>
-      <input type="number" value={price} onChange={e => setPrice(Number(e.target.value))} placeholder="售價"/>
-      <button onClick={handleClick}>分析</button>
-      {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">財務顧問模組</h1>
+      <p className="mb-4 text-gray-600">
+        提供商品定價、資金流規劃與獲利模型，協助降低財務風險。
+      </p>
+      <ChatBox apiUrl="https://你的後端域名/finance" />
     </div>
   );
 }
-
