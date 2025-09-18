@@ -1,22 +1,13 @@
-import { useState } from "react";
-import { getMarketingAdvice } from "../api";
+import ChatBox from "../components/ChatBox";
 
 export default function Marketing() {
-  const [keyword, setKeyword] = useState("");
-  const [result, setResult] = useState(null);
-
-  const handleClick = async () => {
-    const data = await getMarketingAdvice(keyword);
-    setResult(data);
-  };
-
   return (
-    <div>
-      <h2>行銷顧問</h2>
-      <input value={keyword} onChange={e => setKeyword(e.target.value)} placeholder="關鍵字"/>
-      <button onClick={handleClick}>分析</button>
-      {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">行銷顧問模組</h1>
+      <p className="mb-4 text-gray-600">
+        透過社群資料（IG、小紅書）分析市場趨勢、受眾特性，並提供行銷策略建議。
+      </p>
+      <ChatBox apiUrl="https://你的後端域名/marketing" />
     </div>
   );
 }
-
